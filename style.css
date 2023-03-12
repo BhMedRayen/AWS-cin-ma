@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+body{
+    /* background-image: url('./media/Film\ rolls-pana.png');    */
+}
+.admin{
+    border-radius: 10% 10% 10% 10%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: rgb(215, 249, 250);
+    padding: 30px;
+}
+.container .adm{
+    margin-top: 10rem;
+    margin-left: 10rem;
+}
+.button1{
+    margin-left: 3rem;
+}
+ .card{
+    background-color: rgb(215, 249, 250);
+}
+h5  {
+    color: blue;
+}
+h1{
+    text-align: center;
+    color: aqua;
+    background-color: transparent;
+}
+#buy{
+    margin-left: 6rem;
+}
+span {
+    margin-left: 4rem;
+}
+.admin{
+    margin-top: 1rem;
+    
+}

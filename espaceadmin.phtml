@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Espace Admin</title>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Aws Cinéma</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="administration.php">Administration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:rayenmohamed2310@gmail.com">Contact</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container d-flex justify-content-center mt-5 py-5">
+  <div class="col-xl-10 py-1 ">
+    <div class="row shadow-lg rounded p-5">
+         <div class="col-lg-6 mt-2" >
+       <a href="ajouterFilm.php"> <button type="button" class="btn btn-success"><i class="bi bi-database-add"></i> Ajouter un film</button></a>
+       <br>
+       <br>
+       <h5>Liste Des films :</h5>
+         <?php foreach($films as $film) :?>
+         <form class="admin" action="espaceadmin.php" method="POST"> 
+         <input type="hidden" name="id" value='<?=isset($_GET['id']) ? $_GET['id'] : ''?>'>
+              <div class="mb-4">
+               <h5>Nom Film :</h5>
+                 <?= $film['nom_film'] ?>
+              </div> 
+              <div class="mb-3">
+                <h5> Un film de </h5>
+                    <?= $film['realisateur'] ?>
+              </div>
+              <div>
+              <h5> Date de projection et heure de projection</h5>
+                    <?= $film['date'] ?> <br>
+                    <?=$film['heure_projection']?>
+              </div>
+              <div>
+              <h5> Nombre de plaçes disponibles :</h5>
+                    <?= $film['nbr_places'] ?> <br>
+              </div>
+              <span>
+             <a href="update.php?id=<?=$film['id_film'] ?>"> <button type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i> Mise à jour</button></a>
+             <a href="espaceadmin.php?id_delete=<?= $film['id_film'] ?>"><button type="button" class="btn btn-danger" name="delete"><i class="bi bi-calendar-x-fill"></i> Supprimer</button></a>
+         </span>
+              </form>
+              <?php endforeach;?>   
+         </div>   
+         <div class="col-lg-6">
+         <br><br> <br>
+
+
+         <h5>Liste des ticket :</h5>
+         <?php foreach($tickets as $ticket) :?>
+         <form class="admin" action="espaceadmin.php" method="POST"> 
+         <input type="hidden" name="id" value='<?=isset($_GET['id']) ? $_GET['id'] : ''?>'>
+              <div class="mb-4">
+               <h5>Nom Cient :</h5>
+                 <?= $ticket['nom_client'] ?>
+              </div> 
+              <div class="mb-3">
+                <h5> Nombre de classe réserver </h5>
+                    <?= $ticket['nombre_places'] ?>
+              </div>
+              <div class="mb-3">
+                <h5> Le film à regarder </h5>
+                    <?= $ticket['film'] ?>
+              </div>
+              <div>
+              <h5>Numéro de carte bancaire du client</h5>
+                    <?=$ticket['cc_number'] ?> <br>
+              </div>
+              <span>
+             <a href="espaceadmin.php?id_delete_card=<?=$ticket['id_ticket'] ?>"><button type="button" class="btn btn-danger" name="delete"><i class="bi bi-calendar-x-fill"></i> Supprimer</button></a>
+         </span>
+              </form>
+              <?php endforeach;?>   
+         </div>   
+         </div>
+      </div>
+    </div>
+</div>   
+</div>
+
+    
+</body>
+</html>
