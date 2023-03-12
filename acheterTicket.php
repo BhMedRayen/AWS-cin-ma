@@ -1,9 +1,5 @@
 <?php 
 include 'connexion.php';
-// $requete = $pdo->prepare('SELECT * FROM film where id_film=:id');
-// $requete->execute(['id'=>array_key_exists('id',$_GET) ? $_GET['id'] : $_POST['id']]);
-// $film=$requete->fetch();
-// $nom_film=$film['nom_film'];
 if(!empty($_POST))
 {
     $nom_film=$_POST['nom_film'];

@@ -1,4 +1,5 @@
 <?php
+// search
      if(isset($_POST['search']))
      {
      $search_box = $_POST['search'];

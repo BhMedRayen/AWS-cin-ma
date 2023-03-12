@@ -1,4 +1,5 @@
 <?php 
+// update
 include 'connexion.php';
 
 if(isset($_POST['edit']))

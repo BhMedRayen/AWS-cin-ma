@@ -1,5 +1,6 @@
 <?php 
 include 'connexion.php';
+// ajout film
 if(!empty($_POST))
 {
     $nomfilm=$_POST['nom_film'];

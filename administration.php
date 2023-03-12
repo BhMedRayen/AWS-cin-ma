@@ -1,6 +1,6 @@
 <?php 
 include 'connexion.php';
-
+// administration
 if(isset($_POST['login'])){
 
     extract($_POST);

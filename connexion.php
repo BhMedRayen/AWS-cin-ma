@@ -1,4 +1,5 @@
 <?php
+// connexion
 try
 {
     $pdo = new PDO('mysql:host=localhost;dbname=aws;charsetutf8' ,'root','');
